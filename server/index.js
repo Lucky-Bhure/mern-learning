@@ -2,7 +2,8 @@
 require("dotenv").config();  
 const express = require("express");
 const router = require("./router/auth-registration");
-const connectDB = require("./utils/database")
+const connectDB = require("./utils/database");
+const errorMiddleware = require("./middleware/error-middleware");
 
 const app = express();
 const PORT = 5000;
@@ -16,6 +17,9 @@ app.use("/api/auth-registration", router);
 app.get("/", (req, res) => {
     res.send("Hello World");
 });
+
+// Connecting errorMiddleware
+app.use(errorMiddleware);
 
 // Connection with Database
 connectDB().then(() => {

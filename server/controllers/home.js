@@ -1,3 +1,4 @@
+const Contact = require("../models/contact-model");
 const User = require("../models/user-model");
 const bcrypt = require("bcryptjs");
 
@@ -20,14 +21,20 @@ const home = async (req, res) => {
 // 5. Save to DB: Save user data to the database.
 // 6. Respond: Respond with "Registration Successful" or handle errors.
 
-const register = async (req, res) => {
+const register = async (req, res, next) => {
   try {
     const { username, email, phone, password } = req.body;
 
     const userExist = await User.findOne({ email });
 
     if (userExist) {
-      return res.status(400).json({ msg: "Email Already Exist" });
+      // return res.status(400).json({ msg: "Email Already Exist" });
+      const error = {
+        status: 400,
+        message: "Email Already Exist",
+        extraDetails: "Create account with another email"
+      }
+      next(error);
     }
 
     const userCreated = await User.create({ username, email, phone, password });
@@ -49,15 +56,19 @@ const register = async (req, res) => {
 
 
 // Login Logic
-const login = async(req, res) => {
+const login = async(req, res, next) => {
     try {
-
         const { email, password } = req.body;
 
         const userExist = await User.findOne({email});
 
         if(!userExist) {
-            res.status(500).json({msg: "Invalid Credentials"});
+            // res.status(500).json({msg: "Invalid Credentials"});
+            const error = {
+              status: 500,
+              extraDetails: "Invalid Credentials"
+            }
+            next(error);
         }
         
         const isValid = await userExist.comparePassword(password);
@@ -76,9 +87,20 @@ const login = async(req, res) => {
 
         res.status(200).json(userExist);
 
-    } catch(error) {
-        res.status(500).json({msg: "internal server error at register"});
+    } catch(err) {
+        res.status(500).json({message: "internal server error at register"});
     }
 }
 
-module.exports = { home, register, login };
+const contact = async (req, res) => {
+  const contactInfo = req.body;
+
+  try {
+    const contactData = await Contact.create(contactInfo);
+    res.status(200).json({message: "Successfully Submitted"});
+  } catch(error) {
+    res.status(500).json({message: "Message Not Delivered"});
+  }
+}
+
+module.exports = { home, register, login, contact };
