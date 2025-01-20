@@ -50,7 +50,7 @@ const register = async (req, res, next) => {
 //  In most cases, converting _id to a string is a good practice because it ensures consistency and compatibility across different JWT libraries and systems. It also aligns with the expectation that claims in a JWT are represented as strings.
 
   } catch (error) {
-    res.status(500).json("internal server error at register");
+    res.status(500).json({"message": "internal server error at register"});
   }
 };
 
@@ -85,13 +85,12 @@ const login = async(req, res, next) => {
             })  
         }
 
-        res.status(200).json(userExist);
-
     } catch(err) {
         res.status(500).json({message: "internal server error at register"});
     }
 }
 
+// contact logic
 const contact = async (req, res) => {
   const contactInfo = req.body;
 
@@ -103,4 +102,17 @@ const contact = async (req, res) => {
   }
 }
 
-module.exports = { home, register, login, contact };
+
+// user logic
+const user = async (req, res) => {
+  try {
+    const userData = req.user;
+    return res.status(200).json({"message" : userData});
+
+  } catch (error) {
+    console.log("Error from user route");
+  }
+};
+
+
+module.exports = { home, register, login, contact, user };

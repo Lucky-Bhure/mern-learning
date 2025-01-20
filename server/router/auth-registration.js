@@ -1,7 +1,8 @@
 const express = require("express");
-const { home, register, login, contact } = require("../controllers/home");
+const { home, register, login, contact, user } = require("../controllers/home");
 const validate = require("../middleware/validate-middleware");
 const {signUpSchema, logInSchema, contactSchema} = require("../validators/auth-validator");
+const userMiddleware = require("../middleware/user-middleware");
 
 // express.Router()
 const router = express.Router();
@@ -13,7 +14,9 @@ const router = express.Router();
 router.route("/").get(home);
 
 router.route("/register").post(validate(signUpSchema), register);
-router.route("/login").post(validate(logInSchema),login);
-router.route("/contact").post(validate(contactSchema),contact);
+router.route("/login").post(validate(logInSchema), login);
+router.route("/contact").post(validate(contactSchema), contact);
+router.route("/user").get(userMiddleware, user);
 
 module.exports = router;
+

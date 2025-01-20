@@ -44,7 +44,7 @@ const contactSchema = z.object({
   username: z
     .string({ required_error: "Username is required" })
     .trim()
-    .min(6, { message: "Name must be at least of 6 characters" })
+    .min(4, { message: "Name must be at least of 6 characters" })
     .max(255, { message: "Name not be more than 255 characters" }),
   email: z
     .string({ required_error: "Email is required" })
@@ -53,10 +53,9 @@ const contactSchema = z.object({
     .min(6, { message: "Email must be at least of 6 characters" })
     .max(255, { message: "Email not be more than 255 characters" }),
   message: z
-    .string({ required_error: "Password is required" })
+    .string({ required_error: "Message is required" })
     .trim()
-    .min(6, { message: "Password must be at least of 6 characters" })
-    .max(1024, { message: "Password not be more than 1024 characters" }),
+    .max(1024, { message: "Message should not contain more than 1024 characters" }),
 });
 
 module.exports = { signUpSchema, logInSchema, contactSchema };
