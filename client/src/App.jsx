@@ -67,6 +67,7 @@ function App() {
           <Route path='/contact' element={<Contact />}/>
           <Route path='/service' element={<Service />}/>
           <Route path='/register' element={<Register />}/>
+          <Route path='/admin' element={<Admin />}/>
           <Route path='/login' element={<Login />}/>
           <Route path='/logout' element={<Logout />}/>
           <Route path='/*' element={<ErrorPage />}/>

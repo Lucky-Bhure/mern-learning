@@ -22,7 +22,6 @@ const Register = () => {
     password: "",
   });
 
-  const [registerNotification, setRegisterNotification] = useState(false);
   const navigate = useNavigate();
 
   // Handle input changes
@@ -53,7 +52,6 @@ const Register = () => {
 
       if (response.ok) {
         toast.success("Successfully Register")
-        setRegisterNotification(true);
         setUserData({
           username: "",
           email: "",
@@ -125,13 +123,6 @@ const Register = () => {
           Register Now
         </button>
       </form>
-      {
-        registerNotification && 
-        <div>
-          <p>Registration Successfully Completed</p>
-          <button onClick={() => setRegisterNotification(false)}>close</button>
-        </div> 
-      }
     </main>
   );
 };

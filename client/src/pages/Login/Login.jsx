@@ -11,7 +11,6 @@ const Login = () => {
       password:""
     })
   
-  const [loginNotification, setLoginNotification] = useState(false);
   
   const navigate = useNavigate();
   const { storeTokenInLocalStorage } = useAuthentication();
@@ -43,7 +42,6 @@ const Login = () => {
         if(response.ok) {
           toast.success("Successfully Login")
           storeTokenInLocalStorage(res_data.token);
-          setLoginNotification(true);
           navigate("/");
         } else {
           toast.error(res_data.extraDetails ? res_data.extraDetails : res_data.message)
@@ -56,14 +54,6 @@ const Login = () => {
   return (
     <main>
       <h1 className="registration-heading">Login</h1>
-
-      {
-        loginNotification &&
-        <div>
-          <p>Login Successful</p>
-          <button onClick={() => setLoginNotification(false)}>close</button>
-        </div>
-      }
       
       <form className="registration-form" onSubmit={handleSubmit}>
         <div className="input-fields">

@@ -11,8 +11,6 @@ const Contact = () => {
     message: ""
   });
 
-  const [contactNotification, setContactNotification] = useState(false);
-
   const [userData, setUserData] = useState(true);
   const { authorizedUser } = useAuthentication();
 
@@ -54,7 +52,6 @@ const Contact = () => {
       
       if (response.ok) {
         toast.success("Contact Send Successfully");
-        setContactNotification(true);
 
         if(authorizedUser) {
           setContactData({
@@ -80,13 +77,7 @@ const Contact = () => {
   return (
     <main>
       <h1 className="registration-heading">Contact</h1>
-      {
-        contactNotification && 
-        <div>
-          <p>Contact Sent Successfully</p>
-          <button onClick={() => setContactNotification(false)}>close</button>
-        </div>
-      }
+
       <form className='registration-form' onSubmit={handleSubmit}>
         <div className="input-fields">
           <label htmlFor="username">Username</label>
