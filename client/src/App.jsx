@@ -9,6 +9,7 @@ import Login from "./pages/Login/Login";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import AppLayout from "./components/AppLayout/AppLayout";
 import Logout from "./pages/Logout/Logout";
+import Admin from "./pages/Admin/Admin";
 
 function App() {
   const router = createBrowserRouter([
@@ -31,6 +32,10 @@ function App() {
         {
           path: "/contact",
           element: <Contact />,
+        },
+        {
+          path: "/admin",
+          element: <Admin />,
         },
         {
           path: "/login",

@@ -28,7 +28,7 @@ const register = async (req, res, next) => {
     const userExist = await User.findOne({ email });
 
     if (userExist) {
-      // return res.status(400).json({ msg: "Email Already Exist" });
+      // return res.status(400).json({ message: "Email Already Exist" });
       const error = {
         status: 400,
         message: "Email Already Exist",
@@ -39,13 +39,15 @@ const register = async (req, res, next) => {
 
     const userCreated = await User.create({ username, email, phone, password });
 
-    res
+    if(!userExist) {
+      res
       .status(201)
       .json({
-        msg: "Registration Successful",
+        message: "Registration Successful",
         token: await userCreated.generateToken(),
         userId: userCreated._id.toString(),
-      });
+    });
+    }
 
 //  In most cases, converting _id to a string is a good practice because it ensures consistency and compatibility across different JWT libraries and systems. It also aligns with the expectation that claims in a JWT are represented as strings.
 
@@ -63,7 +65,7 @@ const login = async(req, res, next) => {
         const userExist = await User.findOne({email});
 
         if(!userExist) {
-            // res.status(500).json({msg: "Invalid Credentials"});
+            // res.status(500).json({message: "Invalid Credentials"});
             const error = {
               status: 500,
               extraDetails: "Invalid Credentials"
@@ -75,13 +77,13 @@ const login = async(req, res, next) => {
         
         if(isValid) {
             res.status(200).json({
-                msg: "Login Successful",
+                message: "Login Successful",
                 token: await userExist.generateToken(),
                 userId: userExist._id.toString(),
             });
         } else {
             res.status(401).json({
-                msg: "Invalid email or password"
+                message: "Invalid email or password"
             })  
         }
 
@@ -107,7 +109,7 @@ const contact = async (req, res) => {
 const user = async (req, res) => {
   try {
     const userData = req.user;
-    return res.status(200).json({"message" : userData});
+    return res.status(200).json({userData});
 
   } catch (error) {
     console.log("Error from user route");

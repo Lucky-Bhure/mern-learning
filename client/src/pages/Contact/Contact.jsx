@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import "../Register/Register.css"
+import { useAuthentication } from '../../store/Authentication';
+import { toast } from 'react-toastify';
 
 const Contact = () => {
 
@@ -10,6 +12,18 @@ const Contact = () => {
   });
 
   const [contactNotification, setContactNotification] = useState(false);
+
+  const [userData, setUserData] = useState(true);
+  const { authorizedUser } = useAuthentication();
+
+  if(userData && authorizedUser) {
+    setContactData({
+      ...contactData,
+      username: authorizedUser.username,
+      email: authorizedUser.email
+    });
+    setUserData(false);
+  }
 
   const handleInputChange = (event) => {
     const name = event.target.name;
@@ -34,17 +48,29 @@ const Contact = () => {
           },
           body: JSON.stringify(contactData),
         });
-      console.log(response);
+
+      
+      const res_data = await response.json();
+      
       if (response.ok) {
-        console.log("Contact Send Successfully");
+        toast.success("Contact Send Successfully");
         setContactNotification(true);
-        setContactData({
-          username: "",
-          email: "",
-          message: ""
-        });
+
+        if(authorizedUser) {
+          setContactData({
+            username: authorizedUser.username,
+            email: authorizedUser.email,
+            message: ""
+          });
+        } else {
+          setContactData({
+            username: "",
+            email: "",
+            message: ""
+          });
+        }
       } else {
-        console.log("Contact Unsuccessful")
+        toast.error(res_data.extraDetails ? res_data.extraDetails : res_data.message);
       }
     } catch (error) {
       console.log(error)

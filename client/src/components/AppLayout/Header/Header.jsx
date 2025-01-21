@@ -3,7 +3,9 @@ import "./Header.css";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
-  const { isLoggedIn } = useAuthentication();
+  const { isLoggedIn, authorizedUser } = useAuthentication();
+
+  console.log(authorizedUser);
 
   return (
     <header>
@@ -44,6 +46,20 @@ const Header = () => {
               Contact
             </NavLink>
           </li>
+
+          {
+            authorizedUser.isAdmin && 
+            <li>
+              <NavLink
+                to="/admin"
+                className={({ isActive }) =>
+                  isActive ? "active" : "notactive"
+                }
+              >
+                Admin
+              </NavLink>
+            </li>
+          }
 
           {isLoggedIn ? (
             <li>

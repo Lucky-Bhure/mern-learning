@@ -2,6 +2,7 @@ import React, { useState } from "react";
 // import { Form } from "react-router-dom";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 // export const getFormData = async ({ request }) => {
 //   try {
@@ -47,8 +48,11 @@ const Register = () => {
           body: JSON.stringify(userData),
         }
       );
-      console.log(response);
-      if (response.status === 201) {
+
+      const res_data = await response.json();
+
+      if (response.ok) {
+        toast.success("Successfully Register")
         setRegisterNotification(true);
         setUserData({
           username: "",
@@ -56,9 +60,9 @@ const Register = () => {
           phone: "",
           password: "",
         });
-        navigate("/login")
+        navigate("/login");
       } else {
-        console.log("Registration Unsuccessfull")
+        toast.error(res_data.extraDetails ? res_data.extraDetails : res_data.message);
       }
     } catch (error) {
       console.log("Register Error: ", error);
@@ -96,7 +100,7 @@ const Register = () => {
         <div className="input-fields">
           <label htmlFor="phone">Phone No.</label>
           <input
-            type="text"
+            type="number"
             id="phone"
             name="phone"
             placeholder="Enter your phone number"

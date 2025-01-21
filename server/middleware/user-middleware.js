@@ -5,7 +5,7 @@ const userMiddleware = async (req, res, next) => {
   const token = req.header("Authorization");
 
   if (!token) {
-    return res.status(401).json({ msg: "Unauthorized HTTP, token not found" });
+    return res.status(401).json({ message: "Unauthorized HTTP, token not found" });
   }
 
   const jwtToken = token.replace("Bearer", "").trim();
@@ -17,7 +17,7 @@ const userMiddleware = async (req, res, next) => {
     });
 
     if (!userData) {
-        return res.status(404).json({ msg: "User not found" });
+        return res.status(404).json({ message: "User not found" });
     }
 
     req.user = userData;
@@ -26,7 +26,7 @@ const userMiddleware = async (req, res, next) => {
 
     next();
 } catch (error) {
-    return res.status(401).json({ msg: "Unauthorized. Invalid Token" });
+    return res.status(401).json({ message: "Unauthorized. Invalid Token" });
 }
 
 };

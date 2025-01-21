@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "../Register/Register.css"
 import { useNavigate } from "react-router-dom"
 import { useAuthentication } from '../../store/Authentication'
+import { toast } from 'react-toastify';
 
 const Login = () => {
 
@@ -26,7 +27,6 @@ const Login = () => {
     // Handle form submit 
     const handleSubmit = async (event) => {
       event.preventDefault();
-      console.log(userData);
       try {
         const response = await fetch("http://localhost:5000/api/auth-registration/login",
           {
@@ -37,16 +37,16 @@ const Login = () => {
             body: JSON.stringify(userData),
           }
         );
-        console.log(response);
+        
+        const res_data = await response.json();
+        
         if(response.ok) {
-          console.log("login successful");
-          const data = await response.json();
-          storeTokenInLocalStorage(data.token)
-          console.log("Login response: ",data);
+          toast.success("Successfully Login")
+          storeTokenInLocalStorage(res_data.token);
           setLoginNotification(true);
           navigate("/");
         } else {
-          console.log("Login failed.")
+          toast.error(res_data.extraDetails ? res_data.extraDetails : res_data.message)
         }
       } catch (error) {
         console.log(error);
