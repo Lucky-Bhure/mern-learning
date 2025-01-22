@@ -75,7 +75,7 @@ const Contact = () => {
   }
 
   return (
-    <main>
+    <main className='main-container'>
       <h1 className="registration-heading">Contact</h1>
 
       <form className='registration-form' onSubmit={handleSubmit}>

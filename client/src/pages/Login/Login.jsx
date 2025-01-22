@@ -52,7 +52,7 @@ const Login = () => {
     }
 
   return (
-    <main>
+    <main className='main-container'>
       <h1 className="registration-heading">Login</h1>
       
       <form className="registration-form" onSubmit={handleSubmit}>

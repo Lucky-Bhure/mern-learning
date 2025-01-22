@@ -5,8 +5,6 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
   const { isLoggedIn, authorizedUser } = useAuthentication();
 
-  console.log(authorizedUser);
-
   return (
     <header>
       <div className="logo ">

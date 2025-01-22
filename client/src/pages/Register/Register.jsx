@@ -68,7 +68,7 @@ const Register = () => {
   };
 
   return (
-    <main>
+    <main className="main-container">
       <h1 className="registration-heading">Registration Form</h1>
       <form className="registration-form" onSubmit={handleSubmit}>
         <div className="input-fields">

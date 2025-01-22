@@ -112,7 +112,7 @@ const user = async (req, res) => {
     return res.status(200).json({userData});
 
   } catch (error) {
-    console.log("Error from user route");
+    return res.status(401).json( {message: "Error from user route"});
   }
 };
 

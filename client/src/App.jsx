@@ -10,6 +10,10 @@ import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import AppLayout from "./components/AppLayout/AppLayout";
 import Logout from "./pages/Logout/Logout";
 import Admin from "./pages/Admin/Admin";
+import AdminUsers from "./pages/Admin/AdminUsers/AdminUsers";
+import AdminContacts from "./pages/Admin/AdminContacts/AdminContacts";
+import AdminServices from "./pages/Admin/AdminServices/AdminServices";
+import AdminMain from "./pages/Admin/AdminMain/AdminMain";
 
 function App() {
   const router = createBrowserRouter([
@@ -36,6 +40,24 @@ function App() {
         {
           path: "/admin",
           element: <Admin />,
+          children: [
+            {
+              path: "/admin/",
+              element: <AdminMain />
+            },
+            {
+              path: "/admin/users",
+              element: <AdminUsers/>
+            },
+            {
+              path: "/admin/contacts",
+              element: <AdminContacts />
+            },
+            {
+              path: "/admin/services",
+              element: <AdminServices />
+            }
+          ]
         },
         {
           path: "/login",

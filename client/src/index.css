@@ -17,9 +17,12 @@
 
 main {
   min-height: 90vh;
-  padding-top: 2rem;
   display: flex;
   flex-direction: column;
+}
+
+.main-container {
+  padding-top: 2rem;
   align-items: center;
   /* justify-content: center; */
 }
