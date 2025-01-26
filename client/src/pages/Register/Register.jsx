@@ -69,8 +69,13 @@ const Register = () => {
 
   return (
     <main className="main-container">
-      <h1 className="registration-heading">Registration Form</h1>
+      <section className='form-section'>
+      <div>
+        <img src="registration.png" alt="registration-page-image" />
+      </div>
       <form className="registration-form" onSubmit={handleSubmit}>
+      <h2 className='form-text'>Register with us</h2>
+      <p className='form-sub-text'>Lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
         <div className="input-fields">
           <label htmlFor="username">Username</label>
           <input
@@ -123,6 +128,7 @@ const Register = () => {
           Register Now
         </button>
       </form>
+      </section>
     </main>
   );
 };

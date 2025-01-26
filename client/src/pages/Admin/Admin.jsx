@@ -21,7 +21,7 @@ const Admin = () => {
             <NavLink to="/admin/contacts" className={({ isActive }) => (isActive ? "active" : "notactive")}>Contacts</NavLink>
           </li>
           <li>
-            <NavLink to="/admin/services" className={({ isActive }) => (isActive ? "active" : "notactive")}>Services</NavLink>
+            <NavLink to="/admin/courses" className={({ isActive }) => (isActive ? "active" : "notactive")}>Courses</NavLink>
           </li>
         </ul>
       </nav>

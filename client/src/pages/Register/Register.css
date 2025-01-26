@@ -1,55 +1,93 @@
-.registration-heading {
-    margin-bottom: 2rem;
+.form-section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 6rem;
+}
+
+.form-section > div {
+  width: 40%;
+  text-align: start;
+  padding-left: 5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section > div > img {
+    padding-left: 2rem;
+  width: 100%;
+}
+.form-heading {
+  margin-bottom: 0.5rem;
+  font-size: 1.7rem;
+  color: #5c5c5c;
+}
+
+.form-text {
+  margin-bottom: 0.5rem;
+  font-size: 3rem;
+  color: #1d1d1d;
+}
+
+.form-sub-text {
+  font-size: 1.2rem;
+  color: #5c5c5c;
+  margin-bottom: 0.5rem;
 }
 
 .registration-form {
-    width: fit-content;
-    height: fit-content;
-    padding: 2rem 4rem;
-    box-shadow: black 2px 5px 10px;
-    background-color: #c3e1f9;
-    border-radius: 2rem; 
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
 }
 
 .input-fields {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-bottom: 1rem;
 }
 
 .input-fields > label {
-    color: #03346E;
-    font-size: 1.3rem;
-    font-weight: 400;
+  color: #03346e;
+  font-size: 1.1rem;
+  font-weight: 100;
+  margin-bottom: 0.4rem;
 }
 
 .input-fields > input {
-    width: 30vw;
-    font-size: 1rem;
-    padding: 0.5rem 2rem;
-    border-radius: 5px;
-    border: none;
+  border: 2px solid #8d8c8c;
+  width: 30vw;
+  font-size: 1rem;
+  padding: 0.5rem 2rem;
+  border-radius: 4px;
 }
 
 .input-fields > textarea {
-    width: 30vw;
-    font-size: 1rem;
-    padding: 0.5rem 2rem;
-    border-radius: 5px;
-    border: none;
+  border: 2px solid #8d8c8c;
+  width: 30vw;
+  font-size: 1rem;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  padding: 0.5rem 2rem;
+  border-radius: 4px;
 }
 
 .register-btn {
-    padding: 0.5rem 1rem;
-    background-color: #0213fa;
-    border: none;
-    color: white;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: rgb(255, 239, 99);
+  border: none;
+  color: rgb(0, 0, 0);
+  font-size: 1.2rem;
+  border-radius: 5px;
+  margin-top: 1rem;
 }
 
 .register-btn:hover {
-    background-color: #210372;
+  background-color: #d2c800;
 }
