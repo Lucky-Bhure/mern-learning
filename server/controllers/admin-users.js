@@ -13,4 +13,19 @@ const allUsersData = async(req, res, next) => {
     }
 }
 
-module.exports = allUsersData;
+const userDataById = async(req, res, next) => {
+    try {
+        const {id} = req.params;
+        const response = await User.findById(id,{password: 0});
+
+        if(!response) {
+            res.status(404).json({message: "User not found"});
+        }
+
+        res.status(200).json(response);
+    } catch (error) {
+        next(error);
+    }
+}
+
+module.exports = { allUsersData, userDataById };

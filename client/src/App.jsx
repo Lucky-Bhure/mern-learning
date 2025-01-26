@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
-import Service from "./pages/Service/Service";
+import Course from "./pages/Course/Course";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
@@ -12,8 +12,9 @@ import Logout from "./pages/Logout/Logout";
 import Admin from "./pages/Admin/Admin";
 import AdminUsers from "./pages/Admin/AdminUsers/AdminUsers";
 import AdminContacts from "./pages/Admin/AdminContacts/AdminContacts";
-import AdminServices from "./pages/Admin/AdminServices/AdminServices";
 import AdminMain from "./pages/Admin/AdminMain/AdminMain";
+import UpdateUser from "./pages/Admin/AdminUsers/UpdateUser/UpdateUser";
+import AdminCourses from "./pages/Admin/AdminCourses/AdminCourses";
 
 function App() {
   const router = createBrowserRouter([
@@ -30,8 +31,8 @@ function App() {
           element: <About />,
         },
         {
-          path: "/service",
-          element: <Service />,
+          path: "/course",
+          element: <Course />,
         },
         {
           path: "/contact",
@@ -50,12 +51,16 @@ function App() {
               element: <AdminUsers/>
             },
             {
+              path: "/admin/users/edit/:id",
+              element: <UpdateUser />
+            },
+            {
               path: "/admin/contacts",
               element: <AdminContacts />
             },
             {
-              path: "/admin/services",
-              element: <AdminServices />
+              path: "/admin/courses",
+              element: <AdminCourses />
             }
           ]
         },

@@ -2,8 +2,8 @@ import React from 'react'
 
 const AdminMain = () => {
   return (
-    <main>
-    <p>Admin Main</p>
+    <main className='admin-main'>
+      <h1>Welcome to Admin Dashboard</h1>
     </main>
   )
 }

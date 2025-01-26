@@ -1,0 +1,34 @@
+.home-main {
+    align-items: center;
+    justify-content: center;
+}
+
+.home-section {
+    width: 50%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: start;
+}
+
+.home-heading {
+    font-size: 3.6rem;
+    color: rgb(2, 2, 119);
+    line-height: normal;
+}
+
+.home-sub-heading {
+    font-size: 1.4rem;
+    color: rgb(85, 85, 86);
+}
+
+.btn-section {
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+

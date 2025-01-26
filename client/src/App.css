@@ -5,3 +5,29 @@
   text-align: center;
   font-family: 'serif' ;
 }
+
+
+
+.btn {
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.explore-btn {
+  background-color: rgb(2, 2, 119);
+}
+
+.explore {
+  color: rgb(236, 234, 234);
+}
+
+.learn-btn {
+  background-color: rgb(200, 200, 200);
+}
+
+.learn {
+  color: rgb(72, 72, 72);
+}

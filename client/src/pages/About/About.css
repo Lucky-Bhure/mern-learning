@@ -1,0 +1,67 @@
+.about-main {
+    align-items: center;
+    justify-content: center;
+    gap: 4%;
+    width: 100%;
+    height: 100%;
+    padding: 4rem;
+}
+
+.rock-image {
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.about-main > section {
+    color: white;
+    text-align: start;
+}
+
+.section1 {
+    padding-left: 0rem;
+}
+
+.user-heading {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.about-heading {
+    margin-top: 0.5rem;
+    font-size: 2.9rem;
+    color: rgb(226, 226, 226);
+    line-height: normal;
+}
+
+.about-sub-heading {
+    margin-top: 1rem;
+    font-size: 1.4rem;
+    color: rgb(213, 213, 215);
+}
+
+.about-text-section {
+    width: 40%;
+}
+
+.about-note {
+    width: 21%; 
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.about-note > div {
+    padding: 2rem;
+    background-color: rgb(200, 200, 201);
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: rgb(78, 97, 115);
+
+    & h2 {
+        font-size: 2.5rem;
+    }
+}

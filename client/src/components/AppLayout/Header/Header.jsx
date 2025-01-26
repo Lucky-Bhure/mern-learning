@@ -8,9 +8,9 @@ const Header = () => {
   return (
     <header>
       <div className="logo ">
-        <p>Logo</p>
+        <p>QUEST</p>
       </div>
-      <nav>
+      <nav className="nav">
         <ul className="index">
           <li>
             <NavLink
@@ -30,10 +30,10 @@ const Header = () => {
           </li>
           <li>
             <NavLink
-              to="/service"
+              to="/course"
               className={({ isActive }) => (isActive ? "active" : "notactive")}
             >
-              Service
+              Course
             </NavLink>
           </li>
           <li>

@@ -5,10 +5,10 @@ import "./Admin.css"
 
 const Admin = () => {
 
-    const { authorizedUser } = useAuthentication();
+  const { authorizedUser } = useAuthentication();
 
   return (
-    <main>
+    <main className='admin-main-container'>
       <nav className='admin-nav-container'>
         <ul className='admin-nav-division'>
           <li>
@@ -25,7 +25,7 @@ const Admin = () => {
           </li>
         </ul>
       </nav>
-      <section>
+      <section className="admin-section">
         <Outlet />
       </section>
     </main>

@@ -5,16 +5,16 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #0C134F;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(0, 9, 106);
   }
   
   .logo {
-    font-size: 1.7rem;
+    font-size: 1.4rem;
     font-weight: bold;
   }
   
-  nav > ul {
+  .nav > ul {
     display: flex;
     list-style: none;
     width: 30vw;
@@ -27,9 +27,9 @@ header {
   }
 
   .active {
-    color: yellow;
+    color: rgb(55, 0, 255);
   }
 
   .notactive {
-    color: #e9e1f1;
+    color: #25004b;
   }
