@@ -58,4 +58,31 @@ const contactSchema = z.object({
     .max(1024, { message: "Message should not contain more than 1024 characters" }),
 });
 
-module.exports = { signUpSchema, logInSchema, contactSchema };
+const courseSchema = z.object({
+  title: z
+    .string({required_error: "Title is require"})
+    .trim()
+    .min(6, {message: "Title must be at least of 6 characters"})
+    .max(255, {message: "Title not be more than 255 characters"}),
+  description: z
+    .string({required_error: "Description is require"})
+    .trim()
+    .min(6, {message: "Description must be at least of 6 characters"})
+    .max(255, {message: "Description not be more than 255 characters"}),
+  instructor: z
+    .string({required_error: "Instructor Name is required"})
+    .trim()
+    .min(6, {message: "Instructor Name must contain 6 characters"})
+    .max(255, {message: "Instructor Name not be more than 255 characters"}),
+  price: z
+    .number({required_error: "Price is require"})
+    .min(1, {message: "Price must be at least  1 character"})
+    .max(255, {message: "Price Name not be more than 255 characters"}),
+  duration: z
+    .string({required_error: "Duration is require"})
+    .trim()
+    .min(1, {message: "Duration must be at least 1 charcter"})
+    .max(255, {message: "Instructor Name not be more than 255 characters"})
+})
+
+module.exports = { signUpSchema, logInSchema, contactSchema, courseSchema };

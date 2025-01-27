@@ -1,5 +1,6 @@
 const Contact = require("../models/contact-model");
 const User = require("../models/user-model");
+const Course = require("../models/course-model")
 const bcrypt = require("bcryptjs");
 
 // Controllers
@@ -116,5 +117,18 @@ const user = async (req, res) => {
   }
 };
 
+// course logic
+const course = async(req, res, next) => {
+  try {
+    const response = await Course.find();
+    if(!response) {
+      return res.status(404).json({message: "No Course Found"})
+    }
+    return res.status(200).json(response);
+  } catch (error) {
+    next(error)
+  }
+}
 
-module.exports = { home, register, login, contact, user };
+
+module.exports = { home, register, login, contact, user, course};
