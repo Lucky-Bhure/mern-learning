@@ -1,17 +1,21 @@
 .admin-main-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+    min-height: 80vh;
 }
 
 .admin-nav-container {
     width: 20%;
     height: inherit;
-    padding: 1rem 0rem;
+    padding: 1rem 0;
     background-color: rgb(37, 35, 35);
 }
 
 .admin-section {
     width: 80%;
+    max-width: 100%;
 }
 
 .admin-nav-division {
@@ -20,20 +24,19 @@
     flex-direction: column;
     gap: 2rem;
     margin-top: 2rem;
-    
 }
 
-.admin-nav-division > li {
+.admin-nav-division>li {
     list-style: none;
     font-size: 1.2rem;
 }
 
-.admin-nav-division > li > .active {
+.admin-nav-division>li>.active {
     color: blue;
     text-decoration: none;
 }
 
-.admin-nav-division > li > .notactive {
+.admin-nav-division>li>.notactive {
     color: rgb(255, 255, 255);
     text-decoration: none;
 }
@@ -44,10 +47,8 @@
     flex-direction: column;
 }
 
-
 .admin-heading {
     width: 100%;
-    text-align: start;
     text-align: center;
     color: red;
     font-weight: bold;
@@ -55,17 +56,18 @@
 }
 
 .table-section {
-    padding: 2rem 2rem;
+    padding: 2rem;
 }
 
 .table-container {
     margin-top: 3rem;
     width: 100%;
+    max-width: 100%;
     margin: 0 auto;
     border-collapse: collapse;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    border-radius: 0.5rem ;
+    border-radius: 0.5rem;
     box-shadow: black 2px 2px 10px;
 }
 
@@ -75,9 +77,9 @@
     font-size: large;
 }
 
-th, td {
+th,
+td {
     padding: 1rem 0.5rem;
-    /* min-width: 10%; */
 }
 
 tr {
@@ -88,38 +90,37 @@ tbody tr:last-child {
     border-bottom: none;
 }
 
-td > button, a > button {
+td>button,
+a>button {
     border: none;
     padding: 0.5rem 1.5rem;
     border-radius: 1rem;
     font-weight: 600;
 }
 
-td > a > .edit {
+td>a>.edit {
     background-color: rgba(65, 249, 65, 0.496);
     color: green;
-
-    &:hover {
-        background-color: green;
-        color: white;
-    }
 }
 
-td > .userdelete {
+td>a>.edit:hover {
+    background-color: green;
+    color: white;
+}
+
+td>.userdelete {
     background-color: rgba(252, 72, 72, 0.686);
     color: rgb(119, 0, 0);
-
-    &:hover {
-        background-color: #FF2929;
-        color: white;
-    }
-    
 }
 
+td>.userdelete:hover {
+    background-color: #FF2929;
+    color: white;
+}
 
 .contacts-section {
     width: 100%;
-    padding: 1rem 0rem;
+    padding: 1rem 0;
     display: flex;
     justify-content: center;
 }
@@ -137,19 +138,18 @@ td > .userdelete {
 .contact-info {
     width: 100%;
     list-style: none;
-    text-align: start;
+    text-align: justify;
     font-size: 1rem;
     background-color: rgb(9, 15, 65);
     color: white;
-    padding: 2rem 2rem;
+    padding: 2rem;
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    text-align: justify;
 }
 
-.contact-info > p > span {
+.contact-info>p>span {
     color: yellow;
 }
 
@@ -158,17 +158,17 @@ td > .userdelete {
     padding: 0.5rem 2rem;
     border-radius: 1rem;
     background-color: #FF2929;
-    color: rgb(255, 255, 255);
+    color: white;
     font-size: 1rem;
 }
 
 .update-section {
     width: 60%;
+    max-width: 100%;
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    align-self: center;
 }
 
 .back-link {
@@ -187,88 +187,72 @@ td > .userdelete {
 .admin-main-heading {
     background-color: rgb(33, 66, 228);
     height: 30vh;
-    text-align: start;
     width: 100%;
     color: white;
     padding: 1rem 2.5rem;
-    
-    & h1 {
-        font-size: 2rem;
-    }
-    
-    & p {
-        font-size: 1.3rem;
-    }
+    z-index: 0;
+}
+
+.admin-main-heading h1 {
+    font-size: 2rem;
+}
+
+.admin-main-heading p {
+    font-size: 1.3rem;
 }
 
 .admin-main-sub-section {
     position: absolute;
     top: 28vh;
-    z-index: 2;
+    z-index: 1;
     display: flex;
     width: 66.7vw;
     justify-content: space-evenly;
-    
+    flex-wrap: wrap;
 }
 
 .admin-main-sub-div {
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     box-shadow: #515151 3px 3px 10px;
     width: 30%;
     height: 35vh;
     border-radius: 1rem;
     padding: 1rem;
+}
 
-    & p {
-        font-size: 1.2rem;
-        color: rgb(3, 3, 182);
-    }
+.admin-main-sub-div p {
+    font-size: 1.2rem;
+    color: rgb(3, 3, 182);
+}
 
-    & .welcome {
-        font-size: 1.4rem;
-        padding: 0.5rem;
-        font-weight: bold;
-    }
+.admin-main-sub-div .welcome {
+    font-size: 1.4rem;
+    padding: 0.5rem;
+    font-weight: bold;
+}
 
-    & .welcome-sub {
-        font-size: 1.1rem;
-        color: rgb(69, 68, 68);
-        text-align: justify;
-        line-height: normal;
-        padding: 0rem 1rem;
-    }
+.admin-main-sub-div .welcome-sub {
+    font-size: 1.1rem;
+    color: rgb(69, 68, 68);
+    text-align: justify;
+    line-height: normal;
+    padding: 0 1rem;
+}
 
-    & .get-btn {
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        border: none;
-        background-color: blue;
-        box-shadow: rgb(2, 82, 202) 1px 1px 5px ;
-        color: white;
-        font-size: 1rem;
-        margin-top: 1.5rem;
-        display: flex;
-        gap: 0.5rem;
-        align-items: center;
-        justify-content: center;
-        margin-left: 1rem;
-    }
-
-    & .activity {
-        margin-top: 4rem;
-        color: black;
-    }
-
-    & .profile {
-        border-radius: 50%;
-        width: 8rem;
-        height: 8rem;
-    }
-
-    & .username {
-        color: black;
-        font-weight: bold;
-    }
+.admin-main-sub-div .get-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: blue;
+    box-shadow: rgb(2, 82, 202) 1px 1px 5px;
+    color: white;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
 }
 
 .admin-main-last {
@@ -279,46 +263,120 @@ td > .userdelete {
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    padding: 0px 2rem;
-    color: white;
-
-    & div {
-        width: 30%;
-        height: 25vh;
-        border-radius: 0.9rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 2rem 0rem;
-        /* justify-content: center; */
-    }
-
-    & div > p {
-        font-size: 1.2rem;
-    }
-
-    & hr {
-        width: 50%;
-    }
-
-    & div > h2 {
-        font-size: 3rem;
-    }
-
-    & .div1 {
-        background-color: rgb(2, 56, 137);
-        box-shadow: rgb(1, 51, 125) 1px 3px 10px ;
-    }
-
-    & .div2 {
-        background-color: rgb(237, 157, 2);
-        box-shadow: rgb(237, 157, 125) 1px 3px 10px ;
-    }
-
-    & .div3 {
-        background-color: rgb(0, 172, 105);
-        box-shadow: rgb(0, 172, 125) 1px 3px 10px ;
-    }
+    padding: 0 2rem;
+    flex-wrap: wrap;
 }
 
+.admin-main-last div {
+    width: 30%;
+    min-width: 250px;
+    height: 25vh;
+    border-radius: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+}
 
+.admin-main-last div p {
+    font-size: 1.2rem;
+}
+
+.admin-main-last hr {
+    width: 50%;
+}
+
+.admin-main-last div h2 {
+    font-size: 3rem;
+}
+
+.profile {
+    width: 45%;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1100px) {
+    .admin-nav-container {
+        width: 25%;
+    }
+
+    .admin-section {
+        width: 75%;
+    }
+
+    .admin-main-sub-section {
+        top: 30vh;
+        width: 90%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .admin-main-sub-div {
+        width: 80%;
+        margin-bottom: 2rem;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .admin-main-page {
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .admin-nav-container {
+        width: 100%;
+        padding: 0.5rem 0rem;
+    }
+
+    .admin-nav-division {
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding: 0.5rem 1.5rem;
+        margin-top: 0;
+    }
+
+    .admin-section {
+        width: 100%;
+    }
+
+    .admin-main-sub-div {
+        width: 90%;
+        height: auto;
+    }
+
+    .admin-main-last {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .admin-main-last div {
+        width: 90%;
+    }
+
+
+}
+
+@media screen and (max-width: 480px) {
+    .admin-nav-container {
+        width: 100%;
+    }
+
+    .admin-section {
+        width: 100%;
+    }
+
+    .admin-main-heading {
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .admin-main-sub-div {
+        width: 100%;
+    }
+
+    .admin-main-last div {
+        width: 100%;
+    }
+}

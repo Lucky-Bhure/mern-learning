@@ -55,7 +55,7 @@ const Course = () => {
                   <p className='price'>{price}</p>
                   <img src={image} alt="image" />
                   <div className='course-details'>
-                    <p className='title'>{title}</p>
+                    <p className='title'>{title.substring(0,22)+"..."}</p>
                     <div className='course-i-d'>
                       <p className='instructor'><IoMdPerson size={18}/>{instructor}</p>
                       <p className='instructor'><WiTime2 size={18}/>{duration}</p>

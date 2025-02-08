@@ -70,5 +70,6 @@ header {
     width: 100vw;
     gap: 0.4rem;
     padding: 0.5rem 0rem;
+    z-index: 5;
   }
 }
