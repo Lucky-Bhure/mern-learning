@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
+import { useAuthentication } from "../../store/Authentication";
 
 // export const getFormData = async ({ request }) => {
 //   try {
@@ -22,6 +23,8 @@ const Register = () => {
     password: "",
   });
 
+  const {API} = useAuthentication();
+ 
   const navigate = useNavigate();
 
   // Handle input changes
@@ -38,7 +41,7 @@ const Register = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth-registration/register",
+        `${API}/api/auth-registration/register`,
         {
           method: "POST",
           headers: {
@@ -75,7 +78,7 @@ const Register = () => {
       </div>
       <form className="registration-form" onSubmit={handleSubmit}>
       <h2 className='form-text'>Register with us</h2>
-      <p className='form-sub-text'>Lorem ipsum, dolor sit amet consectetur adipisicing elit</p>
+      <p className='form-sub-text'>Kindly fill this form to register</p>
         <div className="input-fields">
           <label htmlFor="username">Username</label>
           <input
@@ -86,6 +89,7 @@ const Register = () => {
             value={userData.username}
             onChange={handleInputChange}
             required
+            autoComplete="false"
           />
         </div>
         <div className="input-fields">

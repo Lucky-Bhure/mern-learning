@@ -5,6 +5,7 @@ export const AuthenticationContext = createContext();
 export const AuthenticationProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("mern_token"));
   const [authorizedUser, setAuthorizedUser] = useState("");
+  const API = import.meta.env.VITE_APP_API_URL;
 
   const isLoggedIn = !!token;
   const authorizedToken = `Bearer ${token}`;
@@ -24,7 +25,7 @@ export const AuthenticationProvider = ({ children }) => {
   const authorizedUserData = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth-registration/user",
+        `${API}/api/auth-registration/user`,
         {
           method: "GET",
           headers: {
@@ -49,6 +50,7 @@ export const AuthenticationProvider = ({ children }) => {
   return (
     <AuthenticationContext.Provider
       value={{
+        API,
         isLoggedIn,
         storeTokenInLocalStorage,
         logoutUser,

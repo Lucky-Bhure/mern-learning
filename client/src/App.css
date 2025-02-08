@@ -31,3 +31,69 @@
 .learn {
   color: rgb(72, 72, 72);
 }
+
+.register-btn {
+  padding: 0.5rem 1rem;
+  background-color: rgb(255, 239, 99);
+  border: none;
+  color: rgb(0, 0, 0);
+  font-size: 1.2rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+
+  &:hover {
+    background-color: #d2c800;
+  }
+}
+
+
+.main-delete {
+  background-color: rgba(223, 47, 47, 0.686);
+  color: rgb(119, 0, 0);
+  width: 6rem;
+  padding: 0.5rem 0rem;
+  border: none;
+  border-radius: 2rem;
+  font-weight: bold;
+  
+    &:hover {
+      background-color: #FF2929;
+      color: white;
+    }
+}
+
+.edit {
+   background-color: rgba(65, 249, 65, 0.496);
+   color: green;
+  width: 6rem;
+  padding: 0.5rem 0rem;
+  border: none;
+    border-radius: 2rem;
+    font-weight: bold;
+    
+    &:hover {
+      background-color: green;
+      color: white;
+    }
+  }
+  
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+  }
+} 
+
+.loader {
+  margin-top: 5rem;
+  width: 48px;
+  height: 48px;
+  border: 5px solid #000b6d;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  }

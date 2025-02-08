@@ -20,6 +20,10 @@ const courseSchema = new Schema({
     duration: {
         type: String,
         require: true
+    },
+    image: {
+        type: String,
+        require: true
     }
 });
 

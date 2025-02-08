@@ -4,7 +4,6 @@ import { NavLink, Outlet } from 'react-router-dom'
 import "./Admin.css"
 
 const Admin = () => {
-
   const { authorizedUser } = useAuthentication();
 
   return (

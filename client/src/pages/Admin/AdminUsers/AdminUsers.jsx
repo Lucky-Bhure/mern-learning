@@ -4,12 +4,12 @@ import { NavLink } from "react-router-dom";
 
 const AdminUsers = () => {
   const [usersData, setUsersData] = useState([]);
-  const { authorizedToken } = useAuthentication();
+  const { API, authorizedToken, authorizedUser } = useAuthentication();
 
   // Get Users Data
   const usersDataFetching = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/admin/users", {
+      const response = await fetch(`${API}/api/admin/users`, {
         method: "GET",
         headers: {
           Authorization: authorizedToken,
@@ -32,7 +32,7 @@ const AdminUsers = () => {
   // Delete User With the _id
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/admin/users/delete/${id}`, {
+      const response = await fetch(`${API}/api/admin/users/delete/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: authorizedToken,
@@ -78,14 +78,19 @@ const AdminUsers = () => {
                   <td>{phone}</td>
                   <td>{isAdmin ? "Yes" : "No"}</td>
                   <td>
-                    <NavLink to={`/admin/users/edit/${_id}`}>
+                    { !(username === authorizedUser.username) &&
+                      <NavLink to={`/admin/users/edit/${_id}`}>
                       <button className="edit">
                         Edit
                       </button>
                     </NavLink>
+                    }
                   </td>
                   <td>
+                    {
+                      !(username === authorizedUser.username) &&
                     <button className="userdelete" onClick={() => handleDelete(_id)}>Delete</button>
+                    }
                   </td>
                 </tr>
               );

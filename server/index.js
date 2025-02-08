@@ -8,10 +8,10 @@ const errorMiddleware = require("./middleware/error-middleware");
 const cors = require("cors")
 
 const app = express();
-const PORT = 5000;
+const PORT = 5001;
 
 const corsOptions = {
-    origin: 'http://localhost:5173',
+    origin: 'http://localhost:5174',
     methods: "PATCH, PUT, DELETE, GET, POST, HEAD",
     credentials: true,
   }
@@ -38,3 +38,4 @@ connectDB().then(() => {
         console.log(`Server is running at http://localhost:${PORT}`);
     });
 });
+

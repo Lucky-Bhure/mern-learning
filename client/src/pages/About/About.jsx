@@ -8,8 +8,7 @@ const About = () => {
 
   return (
     <main className="about-main">
-      <img src="rock.jpg" alt="about-background-image" className="rock-image" />
-      <section className="about-text-section section1">
+      <section className="about-text-section">
         <div>
           <p className="user-heading">
             Hi {authorizedUser ? authorizedUser.username : "User"},

@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { useAuthentication } from "../../../../store/Authentication";
+import {toast} from "react-toastify"
 
 const UpdateUser = () => {
   const [userData, setUserData] = useState({
     username: "",
     email: "",
     phone: "",
-    isAdmin: "",
   });
   const { id } = useParams();
 
-  const { authorizedToken } = useAuthentication();
+  const { API, authorizedToken } = useAuthentication();
+  const navigate = useNavigate();
 
   const fetchUserData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/admin/users/edit/${id}`,
+        `${API}/api/admin/users/edit/${id}`,
         {
           method: "GET",
           headers: {
@@ -38,8 +39,6 @@ const UpdateUser = () => {
     const name = event.target.name;
     const value = event.target.value;
 
-    if(name === "isAdmin" && value==="Yes"){}
-
     setUserData({
       ...userData,
       [name]: value,
@@ -52,6 +51,27 @@ const UpdateUser = () => {
 
   const handleUpdate = async () => {
     console.log(userData);
+    try {
+      const response = await fetch(
+        `${API}/api/admin/users/edit/${id}`,
+        {
+          method: "PATCH",
+          headers: {
+            "Authorization": authorizedToken,
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(userData),
+        }
+      );
+
+      if (response.ok) {
+        toast("Successfully updated")
+        navigate("/admin/users");
+      }
+    } catch (error) {
+      console.log("Error at user data updation");
+      toast("Unsuccessfully updated")
+    }
   };
 
   return (
@@ -86,16 +106,6 @@ const UpdateUser = () => {
             name="phone"
             id="phone"
             value={userData.phone}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="input-fields">
-          <label htmlFor="isAdmin">Admin</label>
-          <input
-            type="text"
-            name="isAdmin"
-            id="isAdmin"
-            value={userData.isAdmin}
             onChange={handleChange}
           />
         </div>

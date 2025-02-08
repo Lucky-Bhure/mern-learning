@@ -82,7 +82,10 @@ const courseSchema = z.object({
     .string({required_error: "Duration is require"})
     .trim()
     .min(1, {message: "Duration must be at least 1 charcter"})
-    .max(255, {message: "Instructor Name not be more than 255 characters"})
+    .max(255, {message: "Instructor Name not be more than 255 characters"}),
+  image: z
+    .string({required_error: "Image is require"})
+    .trim()
 })
 
 module.exports = { signUpSchema, logInSchema, contactSchema, courseSchema };

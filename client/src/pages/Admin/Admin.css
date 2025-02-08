@@ -12,7 +12,6 @@
 
 .admin-section {
     width: 80%;
-    padding: 1rem 2rem;
 }
 
 .admin-nav-division {
@@ -114,7 +113,9 @@ td > .userdelete {
         background-color: #FF2929;
         color: white;
     }
+    
 }
+
 
 .contacts-section {
     width: 100%;
@@ -175,3 +176,149 @@ td > .userdelete {
     color: blue;
     text-decoration: none;
 }
+
+.admin-main-page {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.admin-main-heading {
+    background-color: rgb(33, 66, 228);
+    height: 30vh;
+    text-align: start;
+    width: 100%;
+    color: white;
+    padding: 1rem 2.5rem;
+    
+    & h1 {
+        font-size: 2rem;
+    }
+    
+    & p {
+        font-size: 1.3rem;
+    }
+}
+
+.admin-main-sub-section {
+    position: absolute;
+    top: 28vh;
+    z-index: 2;
+    display: flex;
+    width: 66.7vw;
+    justify-content: space-evenly;
+    
+}
+
+.admin-main-sub-div {
+    background-color: rgb(255, 255, 255);
+    box-shadow: #515151 3px 3px 10px;
+    width: 30%;
+    height: 35vh;
+    border-radius: 1rem;
+    padding: 1rem;
+
+    & p {
+        font-size: 1.2rem;
+        color: rgb(3, 3, 182);
+    }
+
+    & .welcome {
+        font-size: 1.4rem;
+        padding: 0.5rem;
+        font-weight: bold;
+    }
+
+    & .welcome-sub {
+        font-size: 1.1rem;
+        color: rgb(69, 68, 68);
+        text-align: justify;
+        line-height: normal;
+        padding: 0rem 1rem;
+    }
+
+    & .get-btn {
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        border: none;
+        background-color: blue;
+        box-shadow: rgb(2, 82, 202) 1px 1px 5px ;
+        color: white;
+        font-size: 1rem;
+        margin-top: 1.5rem;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: center;
+        margin-left: 1rem;
+    }
+
+    & .activity {
+        margin-top: 4rem;
+        color: black;
+    }
+
+    & .profile {
+        border-radius: 50%;
+        width: 8rem;
+        height: 8rem;
+    }
+
+    & .username {
+        color: black;
+        font-weight: bold;
+    }
+}
+
+.admin-main-last {
+    position: relative;
+    top: 29vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0px 2rem;
+    color: white;
+
+    & div {
+        width: 30%;
+        height: 25vh;
+        border-radius: 0.9rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0rem;
+        /* justify-content: center; */
+    }
+
+    & div > p {
+        font-size: 1.2rem;
+    }
+
+    & hr {
+        width: 50%;
+    }
+
+    & div > h2 {
+        font-size: 3rem;
+    }
+
+    & .div1 {
+        background-color: rgb(2, 56, 137);
+        box-shadow: rgb(1, 51, 125) 1px 3px 10px ;
+    }
+
+    & .div2 {
+        background-color: rgb(237, 157, 2);
+        box-shadow: rgb(237, 157, 125) 1px 3px 10px ;
+    }
+
+    & .div3 {
+        background-color: rgb(0, 172, 105);
+        box-shadow: rgb(0, 172, 125) 1px 3px 10px ;
+    }
+}
+
+

@@ -5,6 +5,7 @@
   justify-content: center;
   padding: 2rem;
   gap: 6rem;
+  flex-wrap: wrap;
 }
 
 .form-section > div {
@@ -16,9 +17,10 @@
 }
 
 .form-section > div > img {
-    padding-left: 2rem;
+  padding-left: 2rem;
   width: 100%;
 }
+
 .form-heading {
   margin-bottom: 0.5rem;
   font-size: 1.7rem;
@@ -26,9 +28,9 @@
 }
 
 .form-text {
-  margin-bottom: 0.5rem;
   font-size: 3rem;
   color: #1d1d1d;
+  line-height: normal;
 }
 
 .form-sub-text {
@@ -61,33 +63,81 @@
   margin-bottom: 0.4rem;
 }
 
-.input-fields > input {
-  border: 2px solid #8d8c8c;
-  width: 30vw;
-  font-size: 1rem;
-  padding: 0.5rem 2rem;
-  border-radius: 4px;
-}
-
+.input-fields > input,
 .input-fields > textarea {
   border: 2px solid #8d8c8c;
   width: 30vw;
   font-size: 1rem;
-  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   padding: 0.5rem 2rem;
   border-radius: 4px;
 }
 
-.register-btn {
-  padding: 0.5rem 1rem;
-  background-color: rgb(255, 239, 99);
-  border: none;
-  color: rgb(0, 0, 0);
-  font-size: 1.2rem;
-  border-radius: 5px;
-  margin-top: 1rem;
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .form-section {
+    flex-direction: column;
+    gap: 3rem;
+    padding: 1.5rem;
+  }
+
+  .form-section > div {
+    width: 80%;
+    padding-left: 2rem;
+    text-align: center;
+  }
+
+  .registration-form {
+    width: 80%;
+  }
+
+  .input-fields > input,
+  .input-fields > textarea {
+    width: 50vw;
+  }
 }
 
-.register-btn:hover {
-  background-color: #d2c800;
+@media (max-width: 768px) {
+  .form-section {
+    gap: 2rem;
+  }
+
+  .form-section>div>img {
+    align-self: center;
+    width: 80%;
+  }
+
+  .form-section > div {
+    width: 90%;
+    padding-left: 0;
+  }
+
+  .form-text {
+    font-size: 2.5rem;
+  }
+
+  .registration-form {
+    width: 90%;
+  }
+
+  .input-fields > input,
+  .input-fields > textarea {
+    width: 70vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-text {
+    font-size: 2rem;
+  }
+
+  .input-fields > input,
+  .input-fields > textarea {
+    width: 80vw;
+    padding: 0.5rem 1rem;
+  }
+
+  /* .register-btn {
+    font-size: 1rem;
+    padding: 0.5rem;
+  } */
 }

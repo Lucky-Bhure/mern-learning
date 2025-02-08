@@ -26,34 +26,35 @@ const register = async (req, res, next) => {
   try {
     const { username, email, phone, password } = req.body;
 
+    // Check if user already exists
     const userExist = await User.findOne({ email });
 
     if (userExist) {
-      // return res.status(400).json({ message: "Email Already Exist" });
       const error = {
         status: 400,
         message: "Email Already Exist",
-        extraDetails: "Create account with another email"
-      }
-      next(error);
+        extraDetails: "Create account with another email",
+      };
+      return next(error); // Return to exit the function
     }
 
+    // Create new user
     const userCreated = await User.create({ username, email, phone, password });
 
-    if(!userExist) {
-      res
-      .status(201)
-      .json({
-        message: "Registration Successful",
-        token: await userCreated.generateToken(),
-        userId: userCreated._id.toString(),
+    // Respond with success message and token
+    res.status(201).json({
+      message: "Registration Successful",
+      token: await userCreated.generateToken(),
+      userId: userCreated._id.toString(),
     });
-    }
-
-//  In most cases, converting _id to a string is a good practice because it ensures consistency and compatibility across different JWT libraries and systems. It also aligns with the expectation that claims in a JWT are represented as strings.
 
   } catch (error) {
-    res.status(500).json({"message": "internal server error at register"});
+    // Pass the error to the error-handling middleware
+    next({
+      status: 500,
+      message: "Internal server error at register",
+      extraDetails: error.message,
+    });
   }
 };
 
@@ -122,7 +123,7 @@ const course = async(req, res, next) => {
   try {
     const response = await Course.find();
     if(!response) {
-      return res.status(404).json({message: "No Course Found"})
+      return res.status(200).json({message: "No Course Found"})
     }
     return res.status(200).json(response);
   } catch (error) {

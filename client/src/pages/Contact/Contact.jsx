@@ -12,7 +12,7 @@ const Contact = () => {
   });
 
   const [userData, setUserData] = useState(true);
-  const { authorizedUser } = useAuthentication();
+  const { API, authorizedUser } = useAuthentication();
 
   if (userData && authorizedUser) {
     setContactData({
@@ -38,7 +38,7 @@ const Contact = () => {
     console.log(contactData);
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth-registration/contact",
+        `${API}/api/auth-registration/contact`,
         {
           method: "POST",
           headers: {

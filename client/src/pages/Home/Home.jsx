@@ -12,7 +12,7 @@ const Home = () => {
           right skills to be prepared for tomorrow.
         </p>
         <div className="btn-section">
-          <button className="btn explore-btn" >
+          <button className="btn explore-btn">
             <NavLink to="/course" className="explore" >EXPLORE COURSES</NavLink>
           </button>
           <button className="btn learn-btn">
@@ -20,8 +20,8 @@ const Home = () => {
           </button>
         </div>
       </section>
-      <section>
-        <img src="./homeimage.avif" alt="image" width={"400px"} />
+      <section className="image-section">
+        <img src="homeimage.jpg" alt="image" className="home-img"/>
       </section>
     </main>
   );

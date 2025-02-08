@@ -1,17 +1,25 @@
 import { useAuthentication } from "../../../store/Authentication";
 import "./Header.css";
 import { NavLink } from "react-router-dom";
+import { AiOutlineMenu } from "react-icons/ai";
+import { RxCross1 } from "react-icons/rx";
+import { useState } from "react";
 
 const Header = () => {
   const { isLoggedIn, authorizedUser } = useAuthentication();
+  const [hamburger, setHamburger] = useState(false);
+
+  const handleHamburger = () => {
+    setHamburger((prev) => !prev);
+  };
 
   return (
     <header>
       <div className="logo ">
         <p>QUEST</p>
       </div>
-      <nav className="nav">
-        <ul className="index">
+      <nav className={hamburger ? "ham-nav" : "nav"}>
+        <ul className={hamburger ? "index" : "index none"}>
           <li>
             <NavLink
               to="/"
@@ -45,8 +53,7 @@ const Header = () => {
             </NavLink>
           </li>
 
-          {
-            authorizedUser.isAdmin && 
+          {authorizedUser.isAdmin && (
             <li>
               <NavLink
                 to="/admin"
@@ -57,7 +64,7 @@ const Header = () => {
                 Admin
               </NavLink>
             </li>
-          }
+          )}
 
           {isLoggedIn ? (
             <li>
@@ -96,6 +103,13 @@ const Header = () => {
           )}
         </ul>
       </nav>
+      <div className="ham-menu">
+        {hamburger ? (
+          <RxCross1 onClick={handleHamburger} size={35} />
+        ) : (
+          <AiOutlineMenu onClick={handleHamburger} size={35} />
+        )}
+      </div>
     </header>
   );
 };

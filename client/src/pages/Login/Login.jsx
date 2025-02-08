@@ -11,7 +11,7 @@ const Login = () => {
   });
 
   const navigate = useNavigate();
-  const { storeTokenInLocalStorage } = useAuthentication();
+  const { API, storeTokenInLocalStorage } = useAuthentication();
 
   // Handle input changes
   const handleInputChange = (event) => {
@@ -26,7 +26,7 @@ const Login = () => {
     event.preventDefault();
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth-registration/login",
+        `${API}/api/auth-registration/login`,
         {
           method: "POST",
           headers: {
